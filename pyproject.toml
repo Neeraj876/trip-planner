@@ -1,0 +1,22 @@
+[project]
+name = "trip-planner"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain",
+    "langchain-community",
+    "langchain-experimental",
+    "fastapi",
+    "python-dotenv",
+    "streamlit",
+    "uvicorn",
+    "pydantic",
+    "httpx",
+    "requests",
+    "langchain-tavily",
+    "langchain-groq",
+    "langchain-openai",
+    "langgraph",
+]

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: trip-planner-backend
+  name: trip-planner-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trip-planner-backend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: trip-planner-backend
+    spec:
+      affinity: 
+       podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+             - key: app
+               operator: In
+               values:
+               - trip-planner-backend
+          topologyKey: kubernetes.io/hostname
+
+      containers:
+      - image: kubenew.azurecr.io/trip-planner-backend:latest
+        name: trip-planner-backend
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+status: {}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: trip-planner-frontend
+  name: trip-planner-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trip-planner-frontend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: trip-planner-frontend
+    spec:
+      containers:
+      - image: kubenew.azurecr.io/trip-planner-frontend:latest
+        name: trip-planner-frontend
+        ports:
+        - containerPort: 8501
+        resources: {}
+status: {}

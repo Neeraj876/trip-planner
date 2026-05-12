@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: trip-planner-backend
+spec:
+  serviceName: "trip-planner-backend-headless"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trip-planner-backend
+  template:
+    metadata:
+      labels:
+        app: trip-planner-backend
+    spec:
+      containers:
+        - name: trip-planner-backend
+          image: kubenew.azurecr.io/trip-planner-backend:latest
+          ports:
+            - containerPort: 8000
