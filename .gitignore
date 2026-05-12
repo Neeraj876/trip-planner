@@ -1,10 +1,12 @@
 # Python-generated files
 __pycache__/
+.tmp_pycache/
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
+my_graph.png
 
 # Virtual environments
 .venv
